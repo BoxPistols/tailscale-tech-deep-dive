@@ -15,15 +15,22 @@ export default function Home() {
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-slate-100">
       {/* Header */}
       <header className="sticky top-0 z-50 border-b border-slate-200/50 bg-white/80 backdrop-blur-xl">
-        <div className="container mx-auto max-w-6xl px-4 py-6">
-          <div className="flex items-center gap-3">
-            <div className="rounded-lg bg-gradient-to-br from-blue-600 to-blue-700 p-2">
-              <Network className="h-6 w-6 text-white" />
+        <div className="container mx-auto max-w-6xl px-4 py-4">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-3">
+              <div className="rounded-lg bg-gradient-to-br from-blue-600 to-blue-700 p-2">
+                <Network className="h-6 w-6 text-white" />
+              </div>
+              <div>
+                <h1 className="text-2xl font-bold text-slate-900">Tailscale Technical Deep Dive</h1>
+                <p className="text-sm text-slate-600">Understanding the architecture behind zero-trust networking</p>
+              </div>
             </div>
-            <div>
-              <h1 className="text-2xl font-bold text-slate-900">Tailscale Technical Deep Dive</h1>
-              <p className="text-sm text-slate-600">Understanding the architecture behind zero-trust networking</p>
-            </div>
+            <nav className="flex gap-4">
+              <a href="/" className="text-sm font-medium text-slate-600 hover:text-slate-900 transition">技術解説</a>
+              <a href="/implementation" className="text-sm font-medium text-slate-600 hover:text-slate-900 transition">実装ガイド</a>
+              <a href="/comparison" className="text-sm font-medium text-slate-600 hover:text-slate-900 transition">比較分析</a>
+            </nav>
           </div>
         </div>
       </header>
@@ -552,17 +559,21 @@ Session Key: 32 bytes (256-bit)`}
 
         {/* Call to Action */}
         <section className="mt-16 rounded-2xl border border-slate-200 bg-gradient-to-r from-blue-50 to-purple-50 p-8 text-center">
-          <h2 className="mb-4 text-2xl font-bold text-slate-900">Ready to Deploy Tailscale?</h2>
+          <h2 className="mb-4 text-2xl font-bold text-slate-900">次のステップへ進みましょう</h2>
           <p className="mb-6 text-slate-700">
-            Now that you understand Tailscale's technical architecture, explore how to implement it in your infrastructure.
+            Tailscaleの技術的なアーキテクチャを理解したら、実装ガイドで具体的な設定手順を確認し、従来のVPNとの比較分析を参考にしてください。
           </p>
           <div className="flex flex-col gap-3 sm:flex-row sm:justify-center">
-            <Button className="bg-blue-600 hover:bg-blue-700">
-              Get Started with Tailscale
-            </Button>
-            <Button variant="outline">
-              View Documentation
-            </Button>
+            <a href="/implementation">
+              <Button className="bg-blue-600 hover:bg-blue-700 w-full sm:w-auto">
+                実装ガイドを見る
+              </Button>
+            </a>
+            <a href="/comparison">
+              <Button variant="outline" className="w-full sm:w-auto">
+                比較分析を見る
+              </Button>
+            </a>
           </div>
         </section>
       </main>
