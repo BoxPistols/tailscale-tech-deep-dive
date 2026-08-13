@@ -13,7 +13,7 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-slate-100">
-      {/* Header */}
+      {/* ヘッダー */}
       <header className="sticky top-0 z-50 border-b border-slate-200/50 bg-white/80 backdrop-blur-xl">
         <div className="container mx-auto max-w-6xl px-4 py-4">
           <div className="flex items-center justify-between">
@@ -22,36 +22,36 @@ export default function Home() {
                 <Network className="h-6 w-6 text-white" />
               </div>
               <div>
-                <h1 className="text-2xl font-bold text-slate-900">Tailscale Technical Deep Dive</h1>
-                <p className="text-sm text-slate-600">Understanding the architecture behind zero-trust networking</p>
+                <h1 className="text-xl md:text-2xl font-bold text-slate-900">Tailscale 技術深掘りガイド</h1>
+                <p className="text-xs md:text-sm text-slate-600">ゼロトラストネットワーキングを支えるアーキテクチャの解説</p>
               </div>
             </div>
-            <nav className="flex gap-4">
-              <a href="/" className="text-sm font-medium text-slate-600 hover:text-slate-900 transition">技術解説</a>
-              <a href="/implementation" className="text-sm font-medium text-slate-600 hover:text-slate-900 transition">実装ガイド</a>
-              <a href="/comparison" className="text-sm font-medium text-slate-600 hover:text-slate-900 transition">比較分析</a>
+            <nav className="flex gap-3 md:gap-6">
+              <a href="/" className="text-sm font-medium text-blue-600 transition">技術解説</a>
+              <a href="/implementation" className="text-sm font-medium text-slate-600 hover:text-blue-600 transition">実装ガイド</a>
+              <a href="/comparison" className="text-sm font-medium text-slate-600 hover:text-blue-600 transition">比較分析</a>
             </nav>
           </div>
         </div>
       </header>
 
       <main className="container mx-auto max-w-6xl px-4 py-12">
-        {/* Introduction Section */}
+        {/* イントロダクション */}
         <section className="mb-16">
           <div className="rounded-2xl border border-slate-200 bg-white p-8 shadow-sm">
-            <h2 className="mb-4 text-3xl font-bold text-slate-900">Welcome to Tailscale's Technical Architecture</h2>
+            <h2 className="mb-4 text-3xl font-bold text-slate-900">Tailscale の技術アーキテクチャへようこそ</h2>
             <p className="mb-4 text-lg text-slate-700">
-              Tailscale is a modern VPN platform that simplifies secure network connectivity through innovative technology. This guide explores the sophisticated engineering that makes Tailscale secure, fast, and easy to use.
+              Tailscaleは、革新的なテクノロジーを通じてセキュアなネットワーク接続をシンプルにする現代的なVPNプラットフォームです。このガイドでは、Tailscaleを安全・高速・容易にしている高度なエンジニアリングを深く掘り下げます。
             </p>
             <p className="text-slate-600">
-              From WireGuard's cryptographic foundations to DERP's relay mechanisms and ACL-based access control, we'll dive deep into each technical component that powers Tailscale's zero-trust networking platform.
+              WireGuardの暗号化基盤から、DERPのリレーメカニズム、そしてACLベースのアクセスコントロールまで、Tailscaleのゼロトラストネットワークを支える各コンポーネントを詳細に解説します。
             </p>
           </div>
         </section>
 
-        {/* Core Technology Sections */}
+        {/* コア技術セクション */}
         <div className="space-y-6">
-          {/* WireGuard Section */}
+          {/* WireGuard セクション */}
           <Card className="border-slate-200">
             <CardHeader 
               className="cursor-pointer hover:bg-slate-50"
@@ -61,8 +61,8 @@ export default function Home() {
                 <div className="flex items-center gap-3">
                   <Lock className="h-6 w-6 text-blue-600" />
                   <div>
-                    <CardTitle>WireGuard: The Data Plane Foundation</CardTitle>
-                    <CardDescription>Modern cryptography for peer-to-peer encryption</CardDescription>
+                    <CardTitle>WireGuard：データプレーンの基盤</CardTitle>
+                    <CardDescription>ピアツーピア暗号化のためのモダンな暗号技術</CardDescription>
                   </div>
                 </div>
                 <ChevronDown 
@@ -73,49 +73,49 @@ export default function Home() {
             {expandedSection === "wireguard" && (
               <CardContent className="space-y-4 border-t border-slate-200 pt-6">
                 <div className="space-y-3">
-                  <h4 className="font-semibold text-slate-900">What is WireGuard?</h4>
+                  <h4 className="font-semibold text-slate-900">WireGuardとは何か？</h4>
                   <p className="text-slate-700">
-                    WireGuard is a modern VPN protocol that serves as Tailscale's data plane. It's designed with simplicity and performance in mind, featuring only ~4,000 lines of code compared to OpenVPN's ~100,000 lines. This minimal codebase makes WireGuard easier to audit and understand.
+                    WireGuardは、Tailscaleのデータプレーンとして機能するモダンなVPNプロトコルです。シンプルさとパフォーマンスを追求して設計されており、OpenVPNの約100,000行に対してわずか約4,000行のコードベースで構成されています。この極小のコードベースにより、監査が容易で高い信頼性を誇ります。
                   </p>
                 </div>
 
                 <div className="space-y-3">
-                  <h4 className="font-semibold text-slate-900">Key Features</h4>
+                  <h4 className="font-semibold text-slate-900">主な特徴</h4>
                   <ul className="space-y-2 text-slate-700">
                     <li className="flex gap-2">
                       <span className="text-blue-600">•</span>
-                      <span><strong>Noise Protocol Framework:</strong> Uses modern cryptography (ChaCha20-Poly1305, Curve25519) for authenticated encryption</span>
+                      <span><strong>Noiseプロトコルフレームワーク：</strong>認証付き暗号化に最新の暗号方式（ChaCha20-Poly1305、Curve25519）を採用</span>
                     </li>
                     <li className="flex gap-2">
                       <span className="text-blue-600">•</span>
-                      <span><strong>Stateless Design:</strong> Doesn't maintain connection state, making it resilient to network changes</span>
+                      <span><strong>ステートレス設計：</strong>接続状態を保持しないため、ネットワークの切り替えに対して極めて高い耐性を持つ</span>
                     </li>
                     <li className="flex gap-2">
                       <span className="text-blue-600">•</span>
-                      <span><strong>Key Rotation:</strong> Automatically rotates encryption keys every 2 minutes for forward secrecy</span>
+                      <span><strong>鍵の自動ローテーション：</strong>前方秘匿性を確保するため、暗号化キーを2分ごとに自動ローテーション</span>
                     </li>
                     <li className="flex gap-2">
                       <span className="text-blue-600">•</span>
-                      <span><strong>Low Latency:</strong> Minimal overhead results in near-native network performance</span>
+                      <span><strong>低遅延：</strong>オーバーヘッドが極めて少なく、ネイティブに近いネットワークパフォーマンスを実現</span>
                     </li>
                   </ul>
                 </div>
 
                 <div className="rounded-lg bg-slate-50 p-4">
-                  <h4 className="mb-2 font-mono text-sm font-semibold text-slate-900">Cryptographic Stack</h4>
+                  <h4 className="mb-2 font-mono text-sm font-semibold text-slate-900">暗号化スタック構成</h4>
                   <pre className="overflow-x-auto text-xs text-slate-700">
-{`Handshake: Noise_IKpsk2_25519_ChaChaPoly_BLAKE2s
-Transport: ChaCha20-Poly1305
-DH Function: Curve25519
-Hash: BLAKE2s
-Session Key: 32 bytes (256-bit)`}
+{`ハンドシェイク: Noise_IKpsk2_25519_ChaChaPoly_BLAKE2s
+トランスポート: ChaCha20-Poly1305
+DH関数: Curve25519
+ハッシュ関数: BLAKE2s
+セッションキー: 32バイト (256ビット)`}
                   </pre>
                 </div>
               </CardContent>
             )}
           </Card>
 
-          {/* NAT Traversal Section */}
+          {/* NAT越え セクション */}
           <Card className="border-slate-200">
             <CardHeader 
               className="cursor-pointer hover:bg-slate-50"
@@ -125,8 +125,8 @@ Session Key: 32 bytes (256-bit)`}
                 <div className="flex items-center gap-3">
                   <Zap className="h-6 w-6 text-amber-600" />
                   <div>
-                    <CardTitle>NAT Traversal: Connecting Through Firewalls</CardTitle>
-                    <CardDescription>STUN, ICE, and DERP relay mechanisms</CardDescription>
+                    <CardTitle>NAT越え（NAT Traversal）：ファイアウォールを突破する仕組み</CardTitle>
+                    <CardDescription>STUN、ICE、およびDERPリレー機構</CardDescription>
                   </div>
                 </div>
                 <ChevronDown 
@@ -137,9 +137,9 @@ Session Key: 32 bytes (256-bit)`}
             {expandedSection === "nat" && (
               <CardContent className="space-y-4 border-t border-slate-200 pt-6">
                 <div className="space-y-3">
-                  <h4 className="font-semibold text-slate-900">The NAT Problem</h4>
+                  <h4 className="font-semibold text-slate-900">NATの課題</h4>
                   <p className="text-slate-700">
-                    Network Address Translation (NAT) is used by routers to allow multiple devices to share a single public IP address. However, NAT makes it difficult for devices behind different NAT layers to communicate directly with each other.
+                    ネットワークアドレス変換（NAT）は、複数のデバイスが1つのパブリックIPアドレスを共有するためにルーターで使用されます。しかしNATは、異なるNAT環境下のデバイス同士が直接通信することを困難にします。
                   </p>
                 </div>
 
@@ -153,25 +153,25 @@ Session Key: 32 bytes (256-bit)`}
                   <TabsContent value="stun" className="space-y-3">
                     <h4 className="font-semibold text-slate-900">STUN (Session Traversal Utilities for NAT)</h4>
                     <p className="text-slate-700">
-                      STUN is a protocol that helps devices discover their external IP address and port number as seen from the public internet. This information is crucial for establishing direct peer-to-peer connections.
+                      STUNは、パブリックインターネット側から見たデバイス自身のグローバルIPアドレスとポート番号を発見するためのプロトコルです。この情報は直接的なピアツーピア接続の確立に不可欠です。
                     </p>
                     <div className="rounded-lg bg-blue-50 p-3 text-sm text-slate-700">
-                      <strong>How it works:</strong> A device sends a request to a STUN server, which responds with the device's public IP and port. The device can then share this information with peers for direct connection attempts.
+                      <strong>仕組み：</strong>デバイスがSTUNサーバーにリクエストを送信し、サーバーがパブリックIPとポートを返却します。デバイスはこの情報をピアと共有し、直接接続を試みます。
                     </div>
                   </TabsContent>
 
                   <TabsContent value="ice" className="space-y-3">
                     <h4 className="font-semibold text-slate-900">ICE (Interactive Connectivity Establishment)</h4>
                     <p className="text-slate-700">
-                      ICE is a framework that combines multiple techniques to establish the best possible connection between two peers. It tries multiple connection candidates in order of preference.
+                      ICEは、2つのピア間で可能な限り最適な接続を確立するために複数の技術を組み合わせるフレームワークです。優先度の高い順に複数の接続候補を試行します。
                     </p>
                     <div className="rounded-lg bg-blue-50 p-3 text-sm text-slate-700">
-                      <strong>Candidate types:</strong>
+                      <strong>候補の種類：</strong>
                       <ul className="mt-2 space-y-1">
-                        <li>• Host: Direct connection using local IP</li>
-                        <li>• Server Reflexive: Connection via discovered public IP</li>
-                        <li>• Peer Reflexive: Connection discovered during connectivity checks</li>
-                        <li>• Relay: Connection through a relay server (DERP)</li>
+                        <li>• ホスト候補：ローカルIPを使用した直接接続</li>
+                        <li>• サーバー反射候補：発見されたパブリックIPを介した接続</li>
+                        <li>• ピア反射候補：接続確認中に発見された経路</li>
+                        <li>• リレー候補：中継サーバー（DERP）を介した接続</li>
                       </ul>
                     </div>
                   </TabsContent>
@@ -179,38 +179,38 @@ Session Key: 32 bytes (256-bit)`}
                   <TabsContent value="derp" className="space-y-3">
                     <h4 className="font-semibold text-slate-900">DERP (Designated Encrypted Relay for Packets)</h4>
                     <p className="text-slate-700">
-                      DERP is Tailscale's proprietary relay protocol used when direct peer-to-peer connections cannot be established. It provides a fallback mechanism to ensure connectivity even in restrictive network environments.
+                      DERPは、直接的なピアツーピア接続が確立できない場合に備えたTailscale独自のフォールバックリレープロトコルです。制限の厳しいネットワーク環境でも確実な接続を保証します。
                     </p>
                     <div className="rounded-lg bg-blue-50 p-3 text-sm text-slate-700">
-                      <strong>Key characteristics:</strong>
+                      <strong>主な特徴：</strong>
                       <ul className="mt-2 space-y-1">
-                        <li>• TLS-encrypted TCP relay for WireGuard packets</li>
-                        <li>• Globally distributed servers for low latency</li>
-                        <li>• Automatic failover between DERP regions</li>
-                        <li>• Stateless design for high availability</li>
+                        <li>• WireGuardパケットをTLS暗号化されたTCPストリームで中継</li>
+                        <li>• 低遅延を実現するためのグローバル分散サーバー配置</li>
+                        <li>• DERPリージョン間の自動フェイルオーバー</li>
+                        <li>• 高可用性のためのステートレス設計</li>
                       </ul>
                     </div>
                   </TabsContent>
                 </Tabs>
 
                 <div className="rounded-lg border border-slate-200 bg-slate-50 p-4">
-                  <h4 className="mb-3 font-semibold text-slate-900">Connection Establishment Flow</h4>
+                  <h4 className="mb-3 font-semibold text-slate-900">接続確立のフロー</h4>
                   <div className="space-y-2 text-sm text-slate-700">
                     <div className="flex gap-2">
                       <span className="font-mono text-blue-600">1.</span>
-                      <span>Device A discovers its public IP via STUN</span>
+                      <span>デバイスAがSTUNを介して自身のパブリックIPを発見</span>
                     </div>
                     <div className="flex gap-2">
                       <span className="font-mono text-blue-600">2.</span>
-                      <span>ICE attempts direct connection to Device B</span>
+                      <span>ICEがデバイスBへの直接接続を試行</span>
                     </div>
                     <div className="flex gap-2">
                       <span className="font-mono text-blue-600">3.</span>
-                      <span>If direct connection fails, fall back to DERP relay</span>
+                      <span>直接接続が失敗した場合、DERPリレーにフォールバック</span>
                     </div>
                     <div className="flex gap-2">
                       <span className="font-mono text-blue-600">4.</span>
-                      <span>All traffic remains encrypted end-to-end</span>
+                      <span>すべてのトラフィックはエンドツーエンドで完全暗号化</span>
                     </div>
                   </div>
                 </div>
@@ -218,7 +218,7 @@ Session Key: 32 bytes (256-bit)`}
             )}
           </Card>
 
-          {/* Control Plane Section */}
+          {/* コントロールプレーン セクション */}
           <Card className="border-slate-200">
             <CardHeader 
               className="cursor-pointer hover:bg-slate-50"
@@ -228,8 +228,8 @@ Session Key: 32 bytes (256-bit)`}
                 <div className="flex items-center gap-3">
                   <GitBranch className="h-6 w-6 text-green-600" />
                   <div>
-                    <CardTitle>Control Plane: Orchestration & Coordination</CardTitle>
-                    <CardDescription>How Tailscale manages network configuration</CardDescription>
+                    <CardTitle>コントロールプレーン：オーケストレーションと調整</CardTitle>
+                    <CardDescription>Tailscaleがネットワーク構成を管理する仕組み</CardDescription>
                   </div>
                 </div>
                 <ChevronDown 
@@ -240,77 +240,77 @@ Session Key: 32 bytes (256-bit)`}
             {expandedSection === "control" && (
               <CardContent className="space-y-4 border-t border-slate-200 pt-6">
                 <div className="space-y-3">
-                  <h4 className="font-semibold text-slate-900">Separation of Concerns</h4>
+                  <h4 className="font-semibold text-slate-900">関心の分離</h4>
                   <p className="text-slate-700">
-                    Tailscale separates network management into two distinct planes: the control plane (management) and the data plane (actual traffic). This separation provides security, scalability, and performance benefits.
+                    Tailscaleは、ネットワーク管理を「コントロールプレーン（管理）」と「データプレーン（実際のデータ転送）」の2つに明確に分離しています。この分離により、優れたセキュリティ、スケーラビリティ、パフォーマンスが実現されています。
                   </p>
                 </div>
 
                 <div className="grid gap-4 md:grid-cols-2">
                   <div className="rounded-lg border border-slate-200 bg-slate-50 p-4">
-                    <h4 className="mb-2 font-semibold text-slate-900">Control Plane Functions</h4>
+                    <h4 className="mb-2 font-semibold text-slate-900">コントロールプレーンの機能</h4>
                     <ul className="space-y-2 text-sm text-slate-700">
                       <li className="flex gap-2">
                         <span className="text-green-600">✓</span>
-                        <span>Device authentication & registration</span>
+                        <span>デバイスの認証と登録</span>
                       </li>
                       <li className="flex gap-2">
                         <span className="text-green-600">✓</span>
-                        <span>Public key distribution</span>
+                        <span>公開鍵の配布</span>
                       </li>
                       <li className="flex gap-2">
                         <span className="text-green-600">✓</span>
-                        <span>Network configuration updates</span>
+                        <span>ネットワーク構成の更新</span>
                       </li>
                       <li className="flex gap-2">
                         <span className="text-green-600">✓</span>
-                        <span>ACL policy enforcement</span>
+                        <span>ACLポリシーの強制適用</span>
                       </li>
                       <li className="flex gap-2">
                         <span className="text-green-600">✓</span>
-                        <span>Audit logging</span>
+                        <span>監査ログの収集</span>
                       </li>
                     </ul>
                   </div>
 
                   <div className="rounded-lg border border-slate-200 bg-slate-50 p-4">
-                    <h4 className="mb-2 font-semibold text-slate-900">Data Plane Functions</h4>
+                    <h4 className="mb-2 font-semibold text-slate-900">データプレーンの機能</h4>
                     <ul className="space-y-2 text-sm text-slate-700">
                       <li className="flex gap-2">
                         <span className="text-green-600">✓</span>
-                        <span>Encrypted packet transmission</span>
+                        <span>暗号化されたパケットの送受信</span>
                       </li>
                       <li className="flex gap-2">
                         <span className="text-green-600">✓</span>
-                        <span>Direct peer-to-peer routing</span>
+                        <span>直接ピアツーピアによるルーティング</span>
                       </li>
                       <li className="flex gap-2">
                         <span className="text-green-600">✓</span>
-                        <span>DERP relay fallback</span>
+                        <span>DERPリレーによるフォールバック</span>
                       </li>
                       <li className="flex gap-2">
                         <span className="text-green-600">✓</span>
-                        <span>Low-latency communication</span>
+                        <span>低遅延な通信の維持</span>
                       </li>
                       <li className="flex gap-2">
                         <span className="text-green-600">✓</span>
-                        <span>No server involvement</span>
+                        <span>サーバーを介さない直接通信</span>
                       </li>
                     </ul>
                   </div>
                 </div>
 
                 <div className="rounded-lg bg-green-50 p-4">
-                  <h4 className="mb-2 font-semibold text-slate-900">Key Benefit: Privacy</h4>
+                  <h4 className="mb-2 font-semibold text-slate-900">プライバシーの利点</h4>
                   <p className="text-sm text-slate-700">
-                    Because the control plane and data plane are separated, Tailscale's coordination servers never see the actual traffic between devices. All data remains encrypted end-to-end, and the control plane only handles metadata and configuration.
+                    コントロールプレーンとデータプレーンが分離されているため、Tailscaleの調整サーバーがデバイス間の実際のトラフィックを閲覧することは一切できません。すべてのデータはエンドツーエンドで暗号化され、コントロールプレーンはメタデータと構成のみを処理します。
                   </p>
                 </div>
               </CardContent>
             )}
           </Card>
 
-          {/* Identity-Based Networking Section */}
+          {/* アイデンティティベースネットワーキング セクション */}
           <Card className="border-slate-200">
             <CardHeader 
               className="cursor-pointer hover:bg-slate-50"
@@ -320,8 +320,8 @@ Session Key: 32 bytes (256-bit)`}
                 <div className="flex items-center gap-3">
                   <Shield className="h-6 w-6 text-purple-600" />
                   <div>
-                    <CardTitle>Identity-Based Networking & ACLs</CardTitle>
-                    <CardDescription>Zero-trust access control policies</CardDescription>
+                    <CardTitle>アイデンティティベースのネットワーキングとACL</CardTitle>
+                    <CardDescription>ゼロトラストアクセスコントロールポリシー</CardDescription>
                   </div>
                 </div>
                 <ChevronDown 
@@ -332,38 +332,38 @@ Session Key: 32 bytes (256-bit)`}
             {expandedSection === "identity" && (
               <CardContent className="space-y-4 border-t border-slate-200 pt-6">
                 <div className="space-y-3">
-                  <h4 className="font-semibold text-slate-900">Beyond IP-Based Access Control</h4>
+                  <h4 className="font-semibold text-slate-900">IPアドレスを超えたアクセスコントロール</h4>
                   <p className="text-slate-700">
-                    Traditional network security relies on IP addresses and network segments. Tailscale introduces identity-based access control, where permissions are tied to who the user is, not where they are.
+                    従来のネットワークセキュリティはIPアドレスやネットワークセグメントに依存していました。Tailscaleはアイデンティティベースのアクセスコントロールを導入し、権限を「どこにいるか」ではなく「誰であるか」に紐付けます。
                   </p>
                 </div>
 
                 <div className="space-y-3">
-                  <h4 className="font-semibold text-slate-900">Access Control Lists (ACLs)</h4>
+                  <h4 className="font-semibold text-slate-900">アクセスコントロールリスト（ACL）</h4>
                   <p className="text-slate-700">
-                    Tailscale's ACL system uses a policy-as-code approach, allowing administrators to define precise access rules in JSON format. Rules specify which users/devices can access which resources and over which protocols.
+                    TailscaleのACLシステムはポリシー・アイズ・コードのアプローチを採用しており、管理者がJSON形式で正確なアクセスルールを定義できます。どのユーザーやデバイスがどのリソースに、どのプロトコルでアクセスできるかを指定します。
                   </p>
                 </div>
 
                 <div className="rounded-lg bg-slate-900 p-4 font-mono text-sm text-slate-100">
-                  <div className="mb-2 text-purple-400">// Example ACL Policy</div>
+                  <div className="mb-2 text-purple-400">// ACLポリシーの記述例</div>
                   <pre className="overflow-x-auto text-xs">{`{
   "acls": [
-    // Allow engineering team SSH access to all servers
+    // エンジニアリングチームによる全サーバーへのSSHアクセスを許可
     {
       "action": "accept",
       "src": ["group:engineering"],
       "dst": ["tag:server"],
       "ports": ["22"]
     },
-    // Allow marketing team HTTP/HTTPS to web services
+    // マーケティングチームによるWebサービスへのHTTP/HTTPSアクセスを許可
     {
       "action": "accept",
       "src": ["group:marketing"],
       "dst": ["tag:web"],
       "ports": ["80", "443"]
     },
-    // Deny all other traffic
+    // その他のトラフィックはすべて拒否
     {
       "action": "deny",
       "src": ["*"],
@@ -375,22 +375,22 @@ Session Key: 32 bytes (256-bit)`}
 
                 <div className="grid gap-4 md:grid-cols-2">
                   <div className="rounded-lg border border-slate-200 bg-slate-50 p-4">
-                    <h4 className="mb-2 font-semibold text-slate-900">Traditional IP-Based</h4>
+                    <h4 className="mb-2 font-semibold text-slate-900">従来のIPベース</h4>
                     <ul className="space-y-2 text-sm text-slate-700">
-                      <li>• Rules tied to IP addresses</li>
-                      <li>• Breaks when IPs change</li>
-                      <li>• Difficult to manage at scale</li>
-                      <li>• No user context</li>
+                      <li>• ルールがIPアドレスに依存</li>
+                      <li>• IP変更時に設定破綻</li>
+                      <li>• 大規模運用が困難</li>
+                      <li>• ユーザーコンテキストの欠如</li>
                     </ul>
                   </div>
 
                   <div className="rounded-lg border border-slate-200 bg-purple-50 p-4">
-                    <h4 className="mb-2 font-semibold text-slate-900">Tailscale Identity-Based</h4>
+                    <h4 className="mb-2 font-semibold text-slate-900">Tailscale アイデンティティベース</h4>
                     <ul className="space-y-2 text-sm text-slate-700">
-                      <li>• Rules tied to user identity</li>
-                      <li>• Works regardless of location</li>
-                      <li>• Scales with organization</li>
-                      <li>• Rich contextual information</li>
+                      <li>• ルールがユーザーIDに紐付け</li>
+                      <li>• 場所を問わず一貫した動作</li>
+                      <li>• 組織の成長に合わせて容易に拡張</li>
+                      <li>• 豊富なコンテキスト情報</li>
                     </ul>
                   </div>
                 </div>
@@ -398,7 +398,7 @@ Session Key: 32 bytes (256-bit)`}
             )}
           </Card>
 
-          {/* Advanced Features Section */}
+          {/* 高度な応用機能 セクション */}
           <Card className="border-slate-200">
             <CardHeader 
               className="cursor-pointer hover:bg-slate-50"
@@ -408,8 +408,8 @@ Session Key: 32 bytes (256-bit)`}
                 <div className="flex items-center gap-3">
                   <Code2 className="h-6 w-6 text-red-600" />
                   <div>
-                    <CardTitle>Advanced Features & Applications</CardTitle>
-                    <CardDescription>Subnet routing, exit nodes, and more</CardDescription>
+                    <CardTitle>高度な応用機能</CardTitle>
+                    <CardDescription>サブネットルーター、出口ノード、Funnel、SSH</CardDescription>
                   </div>
                 </div>
                 <ChevronDown 
@@ -421,40 +421,40 @@ Session Key: 32 bytes (256-bit)`}
               <CardContent className="space-y-4 border-t border-slate-200 pt-6">
                 <Tabs defaultValue="subnet" className="mt-4">
                   <TabsList className="grid w-full grid-cols-4">
-                    <TabsTrigger value="subnet">Subnet Router</TabsTrigger>
-                    <TabsTrigger value="exit">Exit Node</TabsTrigger>
+                    <TabsTrigger value="subnet">サブネットルーター</TabsTrigger>
+                    <TabsTrigger value="exit">出口ノード</TabsTrigger>
                     <TabsTrigger value="funnel">Funnel</TabsTrigger>
-                    <TabsTrigger value="ssh">SSH</TabsTrigger>
+                    <TabsTrigger value="ssh">Tailscale SSH</TabsTrigger>
                   </TabsList>
 
                   <TabsContent value="subnet" className="space-y-3">
-                    <h4 className="font-semibold text-slate-900">Subnet Router</h4>
+                    <h4 className="font-semibold text-slate-900">サブネットルーター</h4>
                     <p className="text-slate-700">
-                      A subnet router allows Tailscale to extend network access to devices that don't have Tailscale installed. By designating one device as a subnet router, all devices on that local network become accessible from the Tailnet.
+                      サブネットルーターを使用することで、Tailscaleをインストールできないデバイス（ネットワークプリンター、NAS、IoTデバイスなど）が存在するローカルネットワーク全体にTailnetからアクセスできるようになります。
                     </p>
                     <div className="rounded-lg bg-red-50 p-3 text-sm text-slate-700">
-                      <strong>Use cases:</strong>
+                      <strong>主なユースケース：</strong>
                       <ul className="mt-2 space-y-1">
-                        <li>• Access network printers and scanners</li>
-                        <li>• Connect to NAS and storage devices</li>
-                        <li>• Reach IoT devices on local networks</li>
-                        <li>• Access legacy systems without Tailscale</li>
+                        <li>• ネットワークプリンターやスキャナーへのアクセス</li>
+                        <li>• NASやストレージデバイスへの接続</li>
+                        <li>• ローカルネットワーク上のIoTデバイス管理</li>
+                        <li>• Tailscale非対応のレガシーシステムへの接続</li>
                       </ul>
                     </div>
                   </TabsContent>
 
                   <TabsContent value="exit" className="space-y-3">
-                    <h4 className="font-semibold text-slate-900">Exit Node</h4>
+                    <h4 className="font-semibold text-slate-900">出口ノード</h4>
                     <p className="text-slate-700">
-                      An exit node allows Tailnet devices to route all their internet traffic through a specific node. This is useful for accessing geo-restricted content or ensuring all traffic appears to come from a trusted location.
+                      出口ノードを設定することで、Tailnet内のデバイスのすべてのインターネットトラフィックを特定のノード経由でルーティングできます。公共Wi-Fi等の安全でない環境からの保護や、地理的制限の回避に役立ちます。
                     </p>
                     <div className="rounded-lg bg-red-50 p-3 text-sm text-slate-700">
-                      <strong>Use cases:</strong>
+                      <strong>主なユースケース：</strong>
                       <ul className="mt-2 space-y-1">
-                        <li>• Secure browsing on public Wi-Fi</li>
-                        <li>• Access services restricted by geography</li>
-                        <li>• Centralized egress point for compliance</li>
-                        <li>• Consistent public IP for all traffic</li>
+                        <li>• 公衆Wi-Fi利用時の安全なブラウジング</li>
+                        <li>• 地理的制限のあるサービスへのアクセス</li>
+                        <li>• コンプライアンス遵守のための集中型トラフィック経由</li>
+                        <li>• すべての通信で一貫したパブリックIPの維持</li>
                       </ul>
                     </div>
                   </TabsContent>
@@ -462,15 +462,15 @@ Session Key: 32 bytes (256-bit)`}
                   <TabsContent value="funnel" className="space-y-3">
                     <h4 className="font-semibold text-slate-900">Tailscale Funnel</h4>
                     <p className="text-slate-700">
-                      Funnel enables temporary, secure public access to services running on Tailnet devices. It's perfect for sharing local development servers or temporary services without complex port forwarding.
+                      Funnel機能は、Tailnet内のデバイスで稼働しているローカルなWebサービスを、一時的かつ安全にインターネットへ公開します。複雑なポートフォワーディング設定やDDNSは不要です。
                     </p>
                     <div className="rounded-lg bg-red-50 p-3 text-sm text-slate-700">
-                      <strong>Use cases:</strong>
+                      <strong>主なユースケース：</strong>
                       <ul className="mt-2 space-y-1">
-                        <li>• Share development servers for testing</li>
-                        <li>• Public webhooks for integrations</li>
-                        <li>• Temporary API endpoints</li>
-                        <li>• Demo applications without deployment</li>
+                        <li>• テスト用のローカル開発サーバーの共有</li>
+                        <li>• 外部インテグレーション用のWebフックエンドポイント</li>
+                        <li>• 一時的なAPIエンドポイントの公開</li>
+                        <li>• デプロイ前のアプリケーションのデモ</li>
                       </ul>
                     </div>
                   </TabsContent>
@@ -478,15 +478,15 @@ Session Key: 32 bytes (256-bit)`}
                   <TabsContent value="ssh" className="space-y-3">
                     <h4 className="font-semibold text-slate-900">Tailscale SSH</h4>
                     <p className="text-slate-700">
-                      Tailscale SSH eliminates the need for SSH key management by leveraging Tailscale's identity and ACL system. Users authenticate using their Tailscale identity, and all SSH sessions are automatically logged.
+                      Tailscale SSHは、TailscaleのアイデンティティとACLシステムを活用することで、手動でのSSH鍵管理を不要にします。ユーザーはTailscaleの認証情報でログインし、すべてのセッションが自動記録されます。
                     </p>
                     <div className="rounded-lg bg-red-50 p-3 text-sm text-slate-700">
-                      <strong>Benefits:</strong>
+                      <strong>主なメリット：</strong>
                       <ul className="mt-2 space-y-1">
-                        <li>• No SSH key distribution needed</li>
-                        <li>• Automatic session logging and auditing</li>
-                        <li>• Identity-based access control</li>
-                        <li>• Works with existing SSH tools</li>
+                        <li>• 面倒なSSH鍵の配布と管理が不要</li>
+                        <li>• 自動的なセッションログ記録と監査証跡</li>
+                        <li>• アイデンティティに基づく厳格なアクセス制御</li>
+                        <li>• 既存のSSHツールとの完全な互換性</li>
                       </ul>
                     </div>
                   </TabsContent>
@@ -496,34 +496,34 @@ Session Key: 32 bytes (256-bit)`}
           </Card>
         </div>
 
-        {/* Performance & Security Section */}
+        {/* パフォーマンスとセキュリティの特性 */}
         <section className="mt-16">
-          <h2 className="mb-6 text-2xl font-bold text-slate-900">Performance & Security Characteristics</h2>
+          <h2 className="mb-6 text-2xl font-bold text-slate-900">パフォーマンスとセキュリティの特性</h2>
           
           <div className="grid gap-6 md:grid-cols-2">
             <Card className="border-slate-200">
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
                   <Zap className="h-5 w-5 text-amber-600" />
-                  Performance Optimizations
+                  パフォーマンス最適化
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-3">
                 <div>
-                  <h4 className="font-semibold text-slate-900">Direct Connections</h4>
-                  <p className="text-sm text-slate-700">Tailscale prioritizes direct peer-to-peer connections, minimizing latency and maximizing throughput.</p>
+                  <h4 className="font-semibold text-slate-900">直接接続（Direct Connections）</h4>
+                  <p className="text-sm text-slate-700">可能な限りピア同士の直接接続を優先し、遅延を最小限に抑えてスループットを最大化。</p>
                 </div>
                 <div>
-                  <h4 className="font-semibold text-slate-900">Adaptive Routing</h4>
-                  <p className="text-sm text-slate-700">Automatically selects the best available path (direct, relay, or hybrid) based on network conditions.</p>
+                  <h4 className="font-semibold text-slate-900">適応型ルーティング</h4>
+                  <p className="text-sm text-slate-700">ネットワーク状況に応じて、直接接続、リレー、ハイブリッドの中から最適な経路を自動選択。</p>
                 </div>
                 <div>
-                  <h4 className="font-semibold text-slate-900">UDP-First Protocol</h4>
-                  <p className="text-sm text-slate-700">Uses UDP for low-latency communication with TCP fallback for reliability.</p>
+                  <h4 className="font-semibold text-slate-900">UDP優先プロトコル</h4>
+                  <p className="text-sm text-slate-700">低遅延な通信のためにUDPを使用しつつ、信頼性のためにTCPフォールバックを完備。</p>
                 </div>
                 <div>
-                  <h4 className="font-semibold text-slate-900">Minimal Overhead</h4>
-                  <p className="text-sm text-slate-700">WireGuard's lean design means less CPU usage and faster packet processing.</p>
+                  <h4 className="font-semibold text-slate-900">最小限のオーバーヘッド</h4>
+                  <p className="text-sm text-slate-700">WireGuardの無駄のない設計により、CPU負荷が低く高速なパケット処理を実現。</p>
                 </div>
               </CardContent>
             </Card>
@@ -532,32 +532,32 @@ Session Key: 32 bytes (256-bit)`}
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
                   <Shield className="h-5 w-5 text-green-600" />
-                  Security Properties
+                  セキュリティ特性
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-3">
                 <div>
-                  <h4 className="font-semibold text-slate-900">End-to-End Encryption</h4>
-                  <p className="text-sm text-slate-700">All traffic encrypted with modern cryptography; even relay servers cannot read content.</p>
+                  <h4 className="font-semibold text-slate-900">エンドツーエンド暗号化</h4>
+                  <p className="text-sm text-slate-700">すべての通信が最新の暗号方式で保護され、リレーサーバーであっても内容の閲覧は不可能。</p>
                 </div>
                 <div>
-                  <h4 className="font-semibold text-slate-900">Zero-Trust Model</h4>
-                  <p className="text-sm text-slate-700">Every device and user authenticated; no implicit trust based on network location.</p>
+                  <h4 className="font-semibold text-slate-900">ゼロトラストモデル</h4>
+                  <p className="text-sm text-slate-700">すべてのデバイスとユーザーを厳格に認証。ネットワーク上の位置に基づく暗黙の信頼を排除。</p>
                 </div>
                 <div>
-                  <h4 className="font-semibold text-slate-900">Perfect Forward Secrecy</h4>
-                  <p className="text-sm text-slate-700">Session keys rotated frequently; compromise of long-term keys doesn't expose past traffic.</p>
+                  <h4 className="font-semibold text-slate-900">前方秘匿性（Forward Secrecy）</h4>
+                  <p className="text-sm text-slate-700">セッションキーが頻繁にローテーションされるため、長期鍵が万一漏洩しても過去の通信は安全。</p>
                 </div>
                 <div>
-                  <h4 className="font-semibold text-slate-900">Audit Logging</h4>
-                  <p className="text-sm text-slate-700">Comprehensive logging of authentication, authorization, and configuration changes.</p>
+                  <h4 className="font-semibold text-slate-900">監査ログ</h4>
+                  <p className="text-sm text-slate-700">認証、認可、および構成変更の包括的なログ記録機能を提供。</p>
                 </div>
               </CardContent>
             </Card>
           </div>
         </section>
 
-        {/* Call to Action */}
+        {/* コール・トゥ・アクション */}
         <section className="mt-16 rounded-2xl border border-slate-200 bg-gradient-to-r from-blue-50 to-purple-50 p-8 text-center">
           <h2 className="mb-4 text-2xl font-bold text-slate-900">次のステップへ進みましょう</h2>
           <p className="mb-6 text-slate-700">
@@ -578,35 +578,34 @@ Session Key: 32 bytes (256-bit)`}
         </section>
       </main>
 
-      {/* Footer */}
+      {/* フッター */}
       <footer className="border-t border-slate-200 bg-slate-900 text-slate-300 py-12">
         <div className="container mx-auto max-w-6xl px-4">
           <div className="grid gap-8 md:grid-cols-3">
             <div>
-              <h3 className="mb-3 font-semibold text-white">About This Guide</h3>
-              <p className="text-sm">
-                A comprehensive technical deep dive into Tailscale's architecture, designed for engineers and technical decision-makers.
+              <h3 className="mb-3 font-semibold text-white">このガイドについて</h3>
+              <p className="text-sm text-slate-400">
+                エンジニアおよび技術意思決定者向けに、Tailscaleのアーキテクチャを詳細に解説した包括的な技術資料です。
               </p>
             </div>
             <div>
-              <h3 className="mb-3 font-semibold text-white">Resources</h3>
-              <ul className="space-y-2 text-sm">
-                <li><a href="#" className="hover:text-white">Official Documentation</a></li>
-                <li><a href="#" className="hover:text-white">Blog & Articles</a></li>
-                <li><a href="#" className="hover:text-white">GitHub Repository</a></li>
+              <h3 className="mb-3 font-semibold text-white">リンク</h3>
+              <ul className="space-y-2 text-sm text-slate-400">
+                <li><a href="https://tailscale.com" target="_blank" rel="noreferrer" className="hover:text-white transition">Tailscale 公式サイト</a></li>
+                <li><a href="https://tailscale.com/kb" target="_blank" rel="noreferrer" className="hover:text-white transition">公式ドキュメント</a></li>
+                <li><a href="https://github.com/tailscale/tailscale" target="_blank" rel="noreferrer" className="hover:text-white transition">GitHub リポジトリ</a></li>
               </ul>
             </div>
             <div>
-              <h3 className="mb-3 font-semibold text-white">Community</h3>
-              <ul className="space-y-2 text-sm">
-                <li><a href="#" className="hover:text-white">Discord Community</a></li>
-                <li><a href="#" className="hover:text-white">Reddit Discussion</a></li>
-                <li><a href="#" className="hover:text-white">GitHub Issues</a></li>
+              <h3 className="mb-3 font-semibold text-white">コミュニティ</h3>
+              <ul className="space-y-2 text-sm text-slate-400">
+                <li><a href="#" className="hover:text-white transition">コミュニティフォーラム</a></li>
+                <li><a href="#" className="hover:text-white transition">ディスカッション</a></li>
               </ul>
             </div>
           </div>
-          <div className="mt-8 border-t border-slate-700 pt-8 text-center text-sm">
-            <p>&copy; 2026 Tailscale Technical Deep Dive. Created with Manus AI.</p>
+          <div className="mt-8 border-t border-slate-800 pt-8 text-center text-sm text-slate-500">
+            <p>&copy; 2026 Tailscale 技術深掘りガイド。日本語技術資料。</p>
           </div>
         </div>
       </footer>

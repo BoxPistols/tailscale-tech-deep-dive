@@ -8,10 +8,17 @@ export default function Implementation() {
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-slate-100">
       {/* Header */}
       <header className="border-b border-slate-200/50 bg-white/80 backdrop-blur-xl">
-        <div className="container mx-auto max-w-6xl px-4 py-6">
-          <div>
-            <h1 className="text-2xl font-bold text-slate-900">Tailscale 実装ガイド</h1>
-            <p className="text-sm text-slate-600">技術から実装へ：ステップバイステップの設定手順</p>
+        <div className="container mx-auto max-w-6xl px-4 py-4">
+          <div className="flex items-center justify-between gap-6">
+            <div>
+              <h1 className="text-xl md:text-2xl font-bold text-slate-900">Tailscale 実装ガイド</h1>
+              <p className="text-xs md:text-sm text-slate-600">技術から実装へ：段階的な設定手順</p>
+            </div>
+            <nav className="flex gap-3 md:gap-6">
+              <a href="/" className="text-sm font-medium text-slate-600 hover:text-blue-600 transition">技術解説</a>
+              <a href="/implementation" className="text-sm font-medium text-blue-600 transition">実装ガイド</a>
+              <a href="/comparison" className="text-sm font-medium text-slate-600 hover:text-blue-600 transition">比較分析</a>
+            </nav>
           </div>
         </div>
       </header>
@@ -195,19 +202,19 @@ export default function Implementation() {
 
         {/* Advanced Features */}
         <section className="mb-12">
-          <h2 className="mb-6 text-2xl font-bold text-slate-900">高度な機能の設定</h2>
+          <h2 className="mb-6 text-2xl font-bold text-slate-900">高度な応用機能の設定</h2>
 
           <Tabs defaultValue="subnet" className="space-y-6">
             <TabsList className="grid w-full grid-cols-3">
-              <TabsTrigger value="subnet">Subnet Router</TabsTrigger>
-              <TabsTrigger value="exit">Exit Node</TabsTrigger>
+              <TabsTrigger value="subnet">サブネットルーター</TabsTrigger>
+              <TabsTrigger value="exit">出口ノード</TabsTrigger>
               <TabsTrigger value="acl">ACL設定</TabsTrigger>
             </TabsList>
 
             <TabsContent value="subnet" className="space-y-4">
               <Card>
                 <CardHeader>
-                  <CardTitle>Subnet Router の設定</CardTitle>
+                  <CardTitle>サブネットルーター（Subnet Router）の設定</CardTitle>
                   <CardDescription>ローカルネットワーク内のデバイスへのアクセス</CardDescription>
                 </CardHeader>
                 <CardContent className="space-y-4">
@@ -233,12 +240,12 @@ export default function Implementation() {
             <TabsContent value="exit" className="space-y-4">
               <Card>
                 <CardHeader>
-                  <CardTitle>Exit Node の設定</CardTitle>
+                  <CardTitle>出口ノード（Exit Node）の設定</CardTitle>
                   <CardDescription>インターネット接続の一元管理</CardDescription>
                 </CardHeader>
                 <CardContent className="space-y-4">
                   <p className="text-slate-700">
-                    Exit Nodeを設定することで、外出先からのすべてのインターネットトラフィックを自宅のMacを経由させることができます。これにより、セキュアで一貫したIPアドレスでのアクセスが可能になります。
+                    出口ノード（Exit Node）を設定することで、外出先からのすべてのインターネットトラフィックを自宅のMacを経由させることができます。これにより、セキュアで一貫したIPアドレスでのアクセスが可能になります。
                   </p>
                   <div className="rounded-lg bg-slate-900 p-4 font-mono text-sm text-slate-100">
                     <div className="mb-2 text-green-400">// ホスト側で実行</div>
@@ -321,7 +328,7 @@ export default function Implementation() {
       {/* Footer */}
       <footer className="border-t border-slate-200 bg-slate-900 text-slate-300 py-12">
         <div className="container mx-auto max-w-6xl px-4 text-center text-sm">
-          <p>&copy; 2026 Tailscale 実装ガイド。Manus AIにより作成。</p>
+          <p>&copy; 2026 Tailscale 実装ガイド。日本語技術資料。</p>
         </div>
       </footer>
     </div>

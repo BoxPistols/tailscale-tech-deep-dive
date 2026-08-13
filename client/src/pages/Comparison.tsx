@@ -33,10 +33,17 @@ export default function Comparison() {
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-slate-100">
       {/* Header */}
       <header className="border-b border-slate-200/50 bg-white/80 backdrop-blur-xl">
-        <div className="container mx-auto max-w-6xl px-4 py-6">
-          <div>
-            <h1 className="text-2xl font-bold text-slate-900">VPN比較分析</h1>
-            <p className="text-sm text-slate-600">Tailscale vs 従来のVPN技術</p>
+        <div className="container mx-auto max-w-6xl px-4 py-4">
+          <div className="flex items-center justify-between gap-6">
+            <div>
+              <h1 className="text-xl md:text-2xl font-bold text-slate-900">VPN比較分析</h1>
+              <p className="text-xs md:text-sm text-slate-600">Tailscaleと従来のVPN技術を比較</p>
+            </div>
+            <nav className="flex gap-3 md:gap-6">
+              <a href="/" className="text-sm font-medium text-slate-600 hover:text-blue-600 transition">技術解説</a>
+              <a href="/implementation" className="text-sm font-medium text-slate-600 hover:text-blue-600 transition">実装ガイド</a>
+              <a href="/comparison" className="text-sm font-medium text-blue-600 transition">比較分析</a>
+            </nav>
           </div>
         </div>
       </header>
