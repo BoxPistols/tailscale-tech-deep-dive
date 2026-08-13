@@ -12,11 +12,12 @@ import Comparison from "./pages/Comparison";
 function Router() {
   return (
     <Switch>
-      <Route path="" component={Home} />
+      {/* より具体的なパスを先に評価し、トップページの包括一致を最後に置く */}
       <Route path="/implementation" component={Implementation} />
       <Route path="/comparison" component={Comparison} />
       <Route path="/404" component={NotFound} />
-      {/* Final fallback route */}
+      <Route path="/" component={Home} />
+      {/* 最終フォールバック */}
       <Route component={NotFound} />
     </Switch>
   );

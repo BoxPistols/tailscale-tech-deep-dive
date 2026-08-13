@@ -36,6 +36,36 @@ export default function Home() {
       </header>
 
       <main className="container mx-auto max-w-6xl px-4 py-12">
+        {/* 初心者向け基礎解説 */}
+        <section className="mb-12">
+          <div className="rounded-2xl border border-blue-200 bg-gradient-to-br from-blue-50/50 to-indigo-50/50 p-8 shadow-sm">
+            <h2 className="mb-3 text-2xl font-bold text-slate-900">【初心者向け】VPNとTailscaleの基本をゼロから学ぶ</h2>
+            <p className="mb-4 text-slate-700">
+              「そもそもVPNや仮想ネットワークとは何？」という方のために、難しい技術用語を使わずにその基本を解説します。
+            </p>
+            <div className="grid gap-6 md:grid-cols-3 mt-6">
+              <div className="rounded-xl bg-white p-5 border border-blue-100 shadow-xs">
+                <h3 className="font-bold text-slate-900 mb-2">1. 従来のVPNの悩み</h3>
+                <p className="text-sm text-slate-600">
+                  従来のVPNは専用の「VPNルーター」や難しい設定（ポート開放など）が必要で、専門知識がないと構築できませんでした。また接続が遅く不安定になりがちです。
+                </p>
+              </div>
+              <div className="rounded-xl bg-white p-5 border border-blue-100 shadow-xs">
+                <h3 className="font-bold text-slate-900 mb-2">2. Tailscaleの発想</h3>
+                <p className="text-sm text-slate-600">
+                  Tailscaleは、面倒なルーター設定を一切不要にし、GoogleやGitHubなどの既存アカウントでログインするだけで、世界中の自分のデバイス同士を直接安全につなぎます。
+                </p>
+              </div>
+              <div className="rounded-xl bg-white p-5 border border-blue-100 shadow-xs">
+                <h3 className="font-bold text-slate-900 mb-2">3. なぜ安全で速いのか？</h3>
+                <p className="text-sm text-slate-600">
+                  超軽量かつ強固な暗号化プロトコル「WireGuard」を採用しているため、CPUに負担をかけず、自宅やオフィスのMacと外出先のMacが直接通信（ピアツーピア）できます。
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* イントロダクション */}
         <section className="mb-16">
           <div className="rounded-2xl border border-slate-200 bg-white p-8 shadow-sm">
@@ -110,6 +140,10 @@ DH関数: Curve25519
 ハッシュ関数: BLAKE2s
 セッションキー: 32バイト (256ビット)`}
                   </pre>
+                </div>
+                <div className="mt-4 border-t border-slate-200 pt-3 text-xs text-slate-500 flex items-center justify-between">
+                  <span>出典: WireGuard 公式ホワイトペーパー / Tailscale 公式ドキュメント</span>
+                  <a href="https://www.wireguard.com/" target="_blank" rel="noreferrer" className="text-blue-600 hover:underline">WireGuard公式サイト ↗</a>
                 </div>
               </CardContent>
             )}
@@ -214,6 +248,10 @@ DH関数: Curve25519
                     </div>
                   </div>
                 </div>
+                <div className="mt-4 border-t border-slate-200 pt-3 text-xs text-slate-500 flex items-center justify-between">
+                  <span>出典: Tailscale Blog "How NAT traversal works"</span>
+                  <a href="https://tailscale.com/blog/how-nat-traversal-works" target="_blank" rel="noreferrer" className="text-blue-600 hover:underline">公式解説記事 ↗</a>
+                </div>
               </CardContent>
             )}
           </Card>
@@ -306,6 +344,10 @@ DH関数: Curve25519
                     コントロールプレーンとデータプレーンが分離されているため、Tailscaleの調整サーバーがデバイス間の実際のトラフィックを閲覧することは一切できません。すべてのデータはエンドツーエンドで暗号化され、コントロールプレーンはメタデータと構成のみを処理します。
                   </p>
                 </div>
+                <div className="mt-4 border-t border-slate-200 pt-3 text-xs text-slate-500 flex items-center justify-between">
+                  <span>出典: Tailscale Architecture Whitepaper</span>
+                  <a href="https://tailscale.com/blog/how-tailscale-works" target="_blank" rel="noreferrer" className="text-blue-600 hover:underline">Tailscaleアーキテクチャ解説 ↗</a>
+                </div>
               </CardContent>
             )}
           </Card>
@@ -393,6 +435,10 @@ DH関数: Curve25519
                       <li>• 豊富なコンテキスト情報</li>
                     </ul>
                   </div>
+                </div>
+                <div className="mt-4 border-t border-slate-200 pt-3 text-xs text-slate-500 flex items-center justify-between">
+                  <span>出典: Tailscale アクセス制御公式ドキュメント</span>
+                  <a href="https://tailscale.com/docs/features/access-control/acls" target="_blank" rel="noreferrer" className="text-blue-600 hover:underline">ACLの公式解説 ↗</a>
                 </div>
               </CardContent>
             )}
@@ -491,6 +537,10 @@ DH関数: Curve25519
                     </div>
                   </TabsContent>
                 </Tabs>
+                <div className="mt-4 border-t border-slate-200 pt-3 text-xs text-slate-500 flex items-center justify-between">
+                  <span>出典: Tailscale公式ドキュメント（サブネットルーター、出口ノード、Funnel、SSH）</span>
+                  <a href="https://tailscale.com/docs/features/subnet-routers" target="_blank" rel="noreferrer" className="text-blue-600 hover:underline">応用機能の公式一覧 ↗</a>
+                </div>
               </CardContent>
             )}
           </Card>
@@ -552,6 +602,10 @@ DH関数: Curve25519
                   <h4 className="font-semibold text-slate-900">監査ログ</h4>
                   <p className="text-sm text-slate-700">認証、認可、および構成変更の包括的なログ記録機能を提供。</p>
                 </div>
+                <div className="mt-4 border-t border-slate-200 pt-3 text-xs text-slate-500 flex items-center justify-between">
+                  <span>出典: Tailscaleの仕組みと接続方式に関する公式解説</span>
+                  <a href="https://tailscale.com/blog/how-tailscale-works" target="_blank" rel="noreferrer" className="text-blue-600 hover:underline">公式技術解説 ↗</a>
+                </div>
               </CardContent>
             </Card>
           </div>
@@ -597,10 +651,11 @@ DH関数: Curve25519
               </ul>
             </div>
             <div>
-              <h3 className="mb-3 font-semibold text-white">コミュニティ</h3>
+              <h3 className="mb-3 font-semibold text-white">公式リソース・出典</h3>
               <ul className="space-y-2 text-sm text-slate-400">
-                <li><a href="#" className="hover:text-white transition">コミュニティフォーラム</a></li>
-                <li><a href="#" className="hover:text-white transition">ディスカッション</a></li>
+                <li><a href="https://tailscale.com/blog/how-tailscale-works" target="_blank" rel="noreferrer" className="hover:text-white transition">Tailscale 公式ブログ（仕組み解説）</a></li>
+                <li><a href="https://www.wireguard.com/" target="_blank" rel="noreferrer" className="hover:text-white transition">WireGuard 公式サイト</a></li>
+                <li><a href="https://tailscale.com/kb/1132/acl-syntax" target="_blank" rel="noreferrer" className="hover:text-white transition">Tailscale ACL公式ドキュメント</a></li>
               </ul>
             </div>
           </div>

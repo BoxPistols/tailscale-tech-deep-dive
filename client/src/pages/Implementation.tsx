@@ -186,7 +186,7 @@ export default function Implementation() {
                     </div>
 
                     <div className="rounded-lg border border-slate-200 bg-blue-50 p-4">
-                      <h4 className="mb-3 font-semibold text-slate-900">接続後のTips</h4>
+                      <h4 className="mb-3 font-semibold text-slate-900">接続後のコツ</h4>
                       <ul className="space-y-2 text-sm text-slate-700">
                         <li><strong>画面サイズ調整：</strong> 「表示」メニューから「拡大/縮小」で見やすいサイズに調整</li>
                         <li><strong>ラグ軽減：</strong> 「表示」→「表示品質を落とす」で画質を下げて遅延を減らす</li>
@@ -319,6 +319,36 @@ export default function Implementation() {
                   <li>• 画面共有アプリで「表示品質を落とす」を試す</li>
                   <li>• ホスト側の不要なアプリケーションを終了</li>
                 </ul>
+              </div>
+            </CardContent>
+          </Card>
+        </section>
+
+        {/* 公式出典 */}
+        <section className="mb-12">
+          <Card className="border-slate-200 bg-white">
+            <CardHeader>
+              <CardTitle>設定手順の公式出典</CardTitle>
+              <CardDescription>本ページの手順を確認するためのTailscale公式資料</CardDescription>
+            </CardHeader>
+            <CardContent>
+              <div className="grid gap-3 md:grid-cols-2 text-sm">
+                <a href="https://tailscale.com/docs/features/subnet-routers" target="_blank" rel="noreferrer" className="rounded-lg border border-slate-200 p-4 text-blue-700 hover:border-blue-400 hover:bg-blue-50 transition">
+                  <strong>サブネットルーターの公式手順 ↗</strong>
+                  <span className="mt-1 block text-slate-600">Tailscale非対応機器のネットワークへ接続する方法</span>
+                </a>
+                <a href="https://tailscale.com/docs/features/exit-nodes" target="_blank" rel="noreferrer" className="rounded-lg border border-slate-200 p-4 text-blue-700 hover:border-blue-400 hover:bg-blue-50 transition">
+                  <strong>出口ノードの公式手順 ↗</strong>
+                  <span className="mt-1 block text-slate-600">すべての通信を特定の端末経由にする方法</span>
+                </a>
+                <a href="https://tailscale.com/docs/features/access-control/acls" target="_blank" rel="noreferrer" className="rounded-lg border border-slate-200 p-4 text-blue-700 hover:border-blue-400 hover:bg-blue-50 transition">
+                  <strong>ACLの公式ドキュメント ↗</strong>
+                  <span className="mt-1 block text-slate-600">アクセス権限を最小権限で定義する方法</span>
+                </a>
+                <a href="https://tailscale.com/docs/features/tailscale-ssh" target="_blank" rel="noreferrer" className="rounded-lg border border-slate-200 p-4 text-blue-700 hover:border-blue-400 hover:bg-blue-50 transition">
+                  <strong>Tailscale SSHの公式ドキュメント ↗</strong>
+                  <span className="mt-1 block text-slate-600">Tailscaleの認証とACLでSSH接続を管理する方法</span>
+                </a>
               </div>
             </CardContent>
           </Card>

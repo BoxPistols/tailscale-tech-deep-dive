@@ -271,12 +271,41 @@ export default function Comparison() {
             </CardContent>
           </Card>
         </section>
+
+        {/* 出典と比較上の注意 */}
+        <section className="mb-12">
+          <Card className="border-amber-200 bg-amber-50/60">
+            <CardHeader>
+              <CardTitle>比較データの前提と公式資料</CardTitle>
+              <CardDescription>数値を読み解く際の注意点と、確認できる一次情報</CardDescription>
+            </CardHeader>
+            <CardContent className="space-y-4 text-sm text-slate-700">
+              <p>
+                本ページの機能表とグラフは、設計上の違いを理解するための説明用サンプルです。遅延、スループット、CPU使用率、セットアップ時間は、端末性能・回線・暗号化設定・測定方法で大きく変わるため、特定環境での性能保証や独立ベンチマークの結果を示すものではありません。
+              </p>
+              <div className="grid gap-3 md:grid-cols-3">
+                <a href="https://tailscale.com/blog/how-tailscale-works" target="_blank" rel="noreferrer" className="rounded-lg bg-white border border-amber-200 p-4 text-blue-700 hover:border-blue-400 transition">
+                  <strong>Tailscaleの仕組み ↗</strong>
+                  <span className="mt-1 block text-slate-600">データプレーンと調整サーバーの役割</span>
+                </a>
+                <a href="https://www.wireguard.com/" target="_blank" rel="noreferrer" className="rounded-lg bg-white border border-amber-200 p-4 text-blue-700 hover:border-blue-400 transition">
+                  <strong>WireGuard公式サイト ↗</strong>
+                  <span className="mt-1 block text-slate-600">暗号化プロトコルの一次資料</span>
+                </a>
+                <a href="https://tailscale.com/docs/features/access-control/acls" target="_blank" rel="noreferrer" className="rounded-lg bg-white border border-amber-200 p-4 text-blue-700 hover:border-blue-400 transition">
+                  <strong>ACL公式ドキュメント ↗</strong>
+                  <span className="mt-1 block text-slate-600">アクセス制御と最小権限の説明</span>
+                </a>
+              </div>
+            </CardContent>
+          </Card>
+        </section>
       </main>
 
       {/* Footer */}
       <footer className="border-t border-slate-200 bg-slate-900 text-slate-300 py-12">
         <div className="container mx-auto max-w-6xl px-4 text-center text-sm">
-          <p>&copy; 2026 VPN比較分析。Manus AIにより作成。</p>
+          <p>&copy; 2026 VPN比較分析。日本語技術資料。</p>
         </div>
       </footer>
     </div>
