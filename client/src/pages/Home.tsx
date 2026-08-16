@@ -39,11 +39,28 @@ export default function Home() {
         {/* 初心者向け基礎解説 */}
         <section className="mb-12">
           <div className="rounded-2xl border border-blue-200 bg-gradient-to-br from-blue-50/50 to-indigo-50/50 p-8 shadow-sm">
-            <h2 className="mb-3 text-2xl font-bold text-slate-900">【初心者向け】VPNとTailscaleの基本をゼロから学ぶ</h2>
+            <h2 className="mb-3 text-2xl font-bold text-slate-900">【初心者向け】そもそも「VPN」とは何か？基本から学ぶ</h2>
             <p className="mb-4 text-slate-700">
-              「そもそもVPNや仮想ネットワークとは何？」という方のために、難しい技術用語を使わずにその基本を解説します。
+              「VPN」や「仮想ネットワーク」という言葉を初めて聞く方のために、その定義と仕組みをわかりやすく解説します。
             </p>
-            <div className="grid gap-6 md:grid-cols-3 mt-6">
+            
+            <div className="mb-6 rounded-xl bg-white p-6 border border-blue-100 shadow-xs space-y-3">
+              <h3 className="font-bold text-slate-900 text-lg">VPN（Virtual Private Network / 仮想専用線）の基本</h3>
+              <p className="text-slate-700 text-sm leading-relaxed">
+                インターネットは本来、世界中の誰もが覗き見や通信の傍受ができるオープンな道路のようなものです。ここに自分専用の「暗号化されたトンネル（仮想の専用線）」を掘り、第三者から絶対に中身が見えない安全な通信路を作る仕組みがVPNです。
+              </p>
+              <div className="grid gap-4 md:grid-cols-2 pt-2">
+                <div className="rounded-lg bg-slate-50 p-3 text-xs text-slate-700">
+                  <strong>目的：</strong> 外出先や自宅から、オフィスのパソコンや社内サーバー、自分専用のMacへ、セキュリティを保ったまま安全にアクセスすること。
+                </div>
+                <div className="rounded-lg bg-slate-50 p-3 text-xs text-slate-700">
+                  <strong>基本動作：</strong> パソコンにインストールした専用ソフトウェアが通信を自動で暗号化し、目的地に到着するまで解読できないように保護します。
+                </div>
+              </div>
+            </div>
+
+            <h3 className="text-xl font-bold text-slate-900 mb-3 mt-6">従来型VPNとTailscaleの違い</h3>
+            <div className="grid gap-6 md:grid-cols-3">
               <div className="rounded-xl bg-white p-5 border border-blue-100 shadow-xs">
                 <h3 className="font-bold text-slate-900 mb-2">1. 従来のVPNの悩み</h3>
                 <p className="text-sm text-slate-600">
