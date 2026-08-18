@@ -200,8 +200,78 @@ export default function Implementation() {
           </Tabs>
         </section>
 
-        {/* Advanced Features */}
+        {/* Tailscale Settings Detailed Guide */}
         <section className="mb-12">
+          <h2 className="mb-6 text-2xl font-bold text-slate-900">Tailscale Settings（設定画面）の完全解説</h2>
+          <Card className="mb-8 border-blue-200 bg-blue-50/40">
+            <CardHeader>
+              <CardTitle>macOS版Tailscale設定画面の見方と推奨設定</CardTitle>
+              <CardDescription>メニューバーのTailscaleアイコン ＞ 歯車アイコン（Settings）を開いたときに表示される各項目の詳細です。</CardDescription>
+            </CardHeader>
+            <CardContent className="space-y-6 text-sm text-slate-700">
+              <figure className="overflow-hidden rounded-xl border border-slate-200 bg-slate-950">
+                <img src="/manus-storage/tailscale-macos-settings_5b62c2f9.png" alt="macOS版Tailscale Settings設定画面" className="mx-auto max-h-[620px] w-auto object-contain" />
+                <figcaption className="border-t border-slate-700 px-4 py-3 text-xs text-slate-300">図：macOS版Tailscale Settings。画面の表示名や項目はTailscaleのバージョンによって異なる場合があります。</figcaption>
+              </figure>
+              <div className="rounded-xl border border-amber-200 bg-amber-50 p-4 text-xs text-slate-700">
+                <strong>先に結論：</strong> Macリモートデスクトップのホストとして使う場合は、「Allow incoming connections」と「Launch Tailscale at login」をオンにし、「Run as exit node」「VPN On Demand」「Tailnet Lock」は用途がある場合だけ設定します。
+              </div>
+              <div className="grid gap-6 md:grid-cols-2">
+                <div className="rounded-xl bg-white p-5 border border-blue-100 shadow-xs space-y-3">
+                  <h3 className="font-bold text-slate-900 text-base border-b pb-2">General（一般設定）</h3>
+                  <div className="space-y-3">
+                    <div>
+                      <strong className="text-blue-700">✓ Allow incoming connections（着信接続の許可）</strong>
+                      <p className="text-xs text-slate-600 mt-1">他のデバイスからの接続を許可します。<strong>ホストMacでは必ずオン</strong>にする必要があります（オフにすると画面共有が繋がりません）。</p>
+                    </div>
+                    <div>
+                      <strong className="text-blue-700">✓ Use Tailscale DNS settings（DNS設定の利用）</strong>
+                      <p className="text-xs text-slate-600 mt-1">MagicDNSを有効にし、IPアドレスではなくデバイス名（例: <code className="bg-slate-100 px-1 py-0.5 rounded">host-mac.tailnet-xxx.ts.net</code>）で名前解決できるようにします。通常はオンを推奨。</p>
+                    </div>
+                    <div>
+                      <strong className="text-blue-700">✓ Use Tailscale subnets（サブネットの利用）</strong>
+                      <p className="text-xs text-slate-600 mt-1">ネットワークのルールに従ってトラフィックをルーティングします。100.x.x.x以外のローカルIPアドレス（192.168.x.x等）へのアクセスに必要です。通常はオン。</p>
+                    </div>
+                    <div>
+                      <span className="text-slate-700 font-semibold">○ Launch Tailscale at login（ログイン時に起動）</span>
+                      <p className="text-xs text-slate-600 mt-1">Macの起動時に自動でTailscaleをバックグラウンド起動します。オフィスに常時設置するホストMacでは<strong>必ずオン</strong>にしてください。</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="rounded-xl bg-white p-5 border border-blue-100 shadow-xs space-y-3">
+                  <h3 className="font-bold text-slate-900 text-base border-b pb-2">Window / VPN On Demand / Exit Nodes</h3>
+                  <div className="space-y-3">
+                    <div>
+                      <span className="text-slate-700 font-semibold">○ Hide Dock Icon（Dockアイコンの非表示）</span>
+                      <p className="text-xs text-slate-600 mt-1">すべてのウィンドウが閉じられたときにDockからアイコンを隠します。メニューバー常駐のためお好みで。</p>
+                    </div>
+                    <div>
+                      <strong className="text-slate-900">VPN On Demand（オンデマンドVPN）</strong>
+                      <p className="text-xs text-slate-600 mt-1">特定のネットワーク環境に接続した際、自動的にTailscaleを有効化する高度な設定です。通常は「Not Enabled（無効）」で問題ありません。</p>
+                    </div>
+                    <div>
+                      <strong className="text-slate-900">Run as exit node（出口ノードとして実行）</strong>
+                      <p className="text-xs text-slate-600 mt-1">このMacをインターネットの「出口」として機能させます。外出先から自宅Mac経由でネット閲覧したい場合にオンにします（Admin Consoleでの承認が必要）。</p>
+                    </div>
+                    <div>
+                      <strong className="text-slate-900">Allow local network access（ローカルネットワークアクセスの許可）</strong>
+                      <p className="text-xs text-slate-600 mt-1">出口ノード経由で通信している最中でも、現地の物理的なローカルネットワーク（プリンターや自宅の別の機械など）へのアクセスを許可します。</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="rounded-xl bg-white p-5 border border-blue-100 shadow-xs space-y-2">
+                <h3 className="font-bold text-slate-900 text-base">Tailnet Lock / CLI integration</h3>
+                <p className="text-xs text-slate-600 leading-relaxed">
+                  <strong>Tailnet Lock：</strong> ネットワークに参加する新しいデバイスを暗号署名で厳格に検証するセキュリティ機能です（通常運用ではNot Enabledで十分です）。<br />
+                  <strong>CLI integration：</strong> ターミナルから <code className="bg-slate-100 px-1 py-0.5 rounded">tailscale status</code> などのコマンドを直接実行できるようにするための連携機能です。
+                </p>
+              </div>
+            </CardContent>
+          </Card>
+
           <h2 className="mb-6 text-2xl font-bold text-slate-900">高度な応用機能の設定</h2>
 
           <Tabs defaultValue="subnet" className="space-y-6">
